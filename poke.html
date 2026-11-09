@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Pokémon</title>
+
+    <!-- Reto: estilo con TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script defer src="poke.js"></script>
+</head>
+<body id="pagina" class="min-h-screen flex items-center justify-center p-4 font-sans transition-colors duration-500 bg-gradient-to-br from-indigo-100 to-cyan-100">
+
+    <div class="w-full max-w-sm bg-white rounded-2xl shadow-xl p-6 text-center">
+        <h1 class="text-3xl font-bold text-gray-800 mb-5">Buscar Pokémon</h1>
+
+        <input
+            type="text"
+            id="pokemonInput"
+            placeholder="Buscar por nombre"
+            class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        >
+
+        <button
+            id="buscarBtn"
+            class="w-full mt-3 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-bold transition"
+        >
+            Buscar
+        </button>
+
+        <h2 id="nombrePoke" class="text-2xl font-bold text-gray-800 capitalize mt-5">???</h2>
+
+        <p id="tipoDePoke" class="mt-3 py-2 rounded-xl bg-gray-200 text-gray-700 capitalize">???</p>
+
+        <!-- Reto: SVG animado para "Cargando..." -->
+        <div id="cargando" class="hidden items-center justify-center gap-2 mt-4 text-gray-500">
+            <svg class="animate-spin h-8 w-8" viewBox="0 0 100 100" aria-hidden="true">
+                <!-- Pokébola -->
+                <circle cx="50" cy="50" r="46" fill="#ef4444" stroke="#1f2937" stroke-width="6"/>
+                <path d="M4 50 A46 46 0 0 0 96 50 Z" fill="#ffffff" stroke="#1f2937" stroke-width="6"/>
+                <line x1="4" y1="50" x2="96" y2="50" stroke="#1f2937" stroke-width="6"/>
+                <circle cx="50" cy="50" r="13" fill="#ffffff" stroke="#1f2937" stroke-width="6"/>
+            </svg>
+            <span>Cargando...</span>
+        </div>
+
+        <p id="mensaje" class="mt-4">Mensaje</p>
+
+        <img id="pokeImg" src="" alt="???" class="mx-auto w-48 h-48 object-contain">
+
+        <!-- Reto: más características del pokémon -->
+        <div id="detalles" class="hidden mt-2 text-left text-sm text-gray-700">
+            <div class="grid grid-cols-3 gap-2 text-center mb-4">
+                <div class="bg-gray-100 rounded-xl p-2">
+                    <p class="text-xs text-gray-500">Número</p>
+                    <p id="pokeNumero" class="font-bold"></p>
+                </div>
+                <div class="bg-gray-100 rounded-xl p-2">
+                    <p class="text-xs text-gray-500">Altura</p>
+                    <p id="pokeAltura" class="font-bold"></p>
+                </div>
+                <div class="bg-gray-100 rounded-xl p-2">
+                    <p class="text-xs text-gray-500">Peso</p>
+                    <p id="pokePeso" class="font-bold"></p>
+                </div>
+            </div>
+
+            <p class="mb-3"><span class="font-bold">Habilidades:</span> <span id="pokeHabilidades" class="capitalize"></span></p>
+
+            <p class="font-bold mb-2">Estadísticas base</p>
+            <div id="pokeStats" class="space-y-2"></div>
+        </div>
+    </div>
+
+</body>
+</html>
